@@ -1,0 +1,43 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "Build a todo list using Reactjs",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  },
+  "keywords": [
+    "todolist",
+    "programming",
+    "learning",
+    "project",
+    "reactjs",
+    "js",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "achraf elhamzaoui",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "airbnb": "^0.0.2",
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "parcel": "^2.0.0-beta.2",
+    "prettier": "^2.3.2"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "browserslist": ">.5%"
+}

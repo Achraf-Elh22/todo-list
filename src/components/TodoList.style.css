@@ -1,0 +1,119 @@
+.todo-list {
+  grid-area: todo-list;
+  background: var(--clr-light);
+  color: var(--clr-dark);
+
+  /* Local variable */
+  --spacer: 2rem;
+}
+
+/* --------------------------------------TODO list header------------------------------------------------------------ */
+.todo-list--header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e4e4e4;
+  padding: var(--spacer);
+}
+
+.todo-list--title {
+  margin: 0;
+}
+
+.todo-list--task-count {
+  font-size: 1rem;
+  margin: 0 0 0 1em;
+}
+
+/* -------------------------------------TODO list Body---------------------------------------------- */
+.todo-list--body {
+  padding: var(--spacer);
+}
+
+/* Tasks */
+
+.todo-list--task {
+  margin-bottom: 1.25em;
+  position: relative;
+}
+
+.todo-list--task::after {
+  content: "";
+  height: 1px;
+  position: absolute;
+  bottom: -0.5em;
+  left: 0;
+  right: 0;
+  background-color: var(--clr-dark);
+  opacity: 0.1;
+}
+
+.todo-list label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Line Through task */
+.todo-list--task label::after {
+  content: "";
+  height: 2px;
+  position: absolute;
+  left: 1.2em;
+  right: 0;
+  top: 50%;
+  color: inherit;
+  background: currentColor;
+  opacity: 0.7;
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform 250ms ease-in-out;
+}
+
+/* Show the line through if checkbox is checked */
+.todo-list--task [type="checkbox"]:checked + label::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+/* custom checkbox */
+.todo-list--task [type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.todo-list--task__custom-checkbox {
+  --size: 0.75em;
+  width: var(--size);
+  height: var(--size);
+  color: inherit;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  margin-right: var(--size);
+  cursor: pointer;
+
+  transition: all 250ms ease-in;
+}
+
+/* hover affect */
+.todo-list--task label:hover .todo-list--task__custom-checkbox,
+.todo-list--task [type="checkbox"]:focus + .todo-list--task__custom-checkbox {
+  transform: scale(1.25);
+  color: var(--clr-primary);
+}
+
+/* Custom checkbox checked */
+.todo-list--task
+  [type="checkbox"]:checked
+  + label
+  .todo-list--task__custom-checkbox {
+  background-color: var(--clr-primary);
+  border-color: var(--clr-primary);
+  box-shadow: inset 0px 0px 0px 2px whitesmoke;
+  opacity: 0.7;
+}
+
+.todo-list--task [type="checkbox"]:checked + label {
+  opacity: 0.7;
+}
