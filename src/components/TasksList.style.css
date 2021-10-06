@@ -1,3 +1,4 @@
 .tasks-list {
+  --color: white;
   grid-area: tasks-list;
 }

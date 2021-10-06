@@ -6,6 +6,7 @@
 }
 
 .tasks__item {
+  text-transform: capitalize;
   cursor: pointer;
   transition: opacity 150ms ease-in;
 }
@@ -20,4 +21,8 @@
 
 .tasks__item--active:hover {
   opacity: 0.8;
+}
+
+.tasks-list__form {
+  font-size: 1.2rem;
 }

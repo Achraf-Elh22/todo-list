@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./TaskItems.style.css";
 
-const TasksItems = () => {
+const TasksItems = ({ tasks, toggleOpen }) => {
   return (
     <ul className="tasks__items">
-      <li className="tasks__item">Homeworks</li>
-      <li className="tasks__item">Social</li>
-      <li className="tasks__item tasks__item--active">Programming</li>
-      <li className="tasks__item">Gym</li>
+      {tasks.map(({ taskName, isOpen, id }) => (
+        <li
+          className={`tasks__item ${isOpen ? "tasks__item--active" : ""}`}
+          key={id}
+          onClick={() => toggleOpen(id)}>
+          {taskName}
+        </li>
+      ))}
     </ul>
   );
 };

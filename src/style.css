@@ -36,3 +36,21 @@ body {
   margin: -0.3em 0 0.5em;
   letter-spacing: 3px;
 }
+
+/* Error */
+.error {
+  display: inline-block;
+  margin: 0.75em 0 0 1.5rem;
+  padding: 0.25em 0.75em;
+  border-radius: 15px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: red;
+  transform-origin: right;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+}
+
+.error:hover {
+  opacity: 0.9;
+}

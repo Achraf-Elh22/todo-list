@@ -1,58 +1,41 @@
 import React from "react";
 
 // Components
-import TaskItem from "./TaskItem.jsx";
+import TodoItem from "./TodoItem.jsx";
+import NewItemForm from "./NewItemForm.jsx";
 
 // Styles
 import "./TodoList.style.css";
 
-class TodoList extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      tasks: [
-        {
-          id: "001",
-          taskName: "Javascript",
-          isCompleted: false,
-        },
-        {
-          id: "002",
-          taskName: "React",
-          isCompleted: false,
-        },
-        {
-          id: "003",
-          taskName: "Something else different",
-          isCompleted: false,
-        },
-      ],
-    };
-    this.toggleCheckbox = this.toggleCheckbox.bind(this);
-  }
+const TodoList = (props) => {
+  const { todoHelpers, todosList } = props;
 
-  // Toggle Checkbox
-  toggleCheckbox() {
-    const task = this.state.tasks.filter((task) => task.id === id);
-    this.setState({ isCompleted: !this.state.isCompleted });
-  }
+  const uncompletedTodos = () =>
+    todosList.todos.filter((todo) => todo.isCompleted !== true);
 
-  render() {
-    return (
-      <div className="todo-list">
-        <div className="todo-list--header">
-          <h2 className="todo-list--title">Programming</h2>
-          <p className="todo-list--task-count">2 Tasks remaining</p>
-        </div>
-        <div className="todo-list--body">
-          <div className="todo-list--tasks">
-            {this.state.tasks.map((task) => (
-              <TaskItem {...task} key={task.id} />
-            ))}
+  return (
+    <div className="todo-list">
+      <div className="todo-list--header">
+        <h2 className="todo-list--title">{todosList.taskName}</h2>
+        <p className="todo-item-count">{`${
+          uncompletedTodos().length
+        } Tasks remaining`}</p>
+      </div>
+      <div className="todo-list--body">
+        <div className="todo-items">
+          {todosList.todos.map((todo) => (
+            <TodoItem
+              {...todo}
+              key={todo.id}
+              todoStatus={todoHelpers.todoStatus}
+            />
+          ))}
+          <div className="todo--new-item">
+            <NewItemForm callback={todoHelpers.addTodo} />
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 export default TodoList;
