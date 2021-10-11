@@ -2,6 +2,7 @@
   grid-area: todo-list;
   background: var(--clr-light);
   color: var(--clr-dark);
+  position: relative;
 
   /* Local variable */
   --spacer: 2rem;
@@ -32,4 +33,27 @@
 .todo--new-item {
   --btn-clr: var(--clr-primary);
   font-size: 1.4rem;
+}
+
+/* --------------------------------------TODO list footer------------------------------------------------------------ */
+.todo-list--footer {
+  position: absolute;
+  bottom: -1.5em;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.todo-list--footer .delete {
+  font-size: 1rem;
+  color: var(--clr-light);
+  opacity: 0.7;
+  cursor: pointer;
+
+  transition: color 0.2s ease-in;
+}
+
+.todo-list--footer .delete:hover {
+  color: var(--clr-warning);
 }

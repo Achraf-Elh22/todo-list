@@ -5,11 +5,17 @@
   --clr-warning: rgb(99, 36, 36);
 }
 
+/* reset */
 *,
 *::before,
 *::after {
   font-family: inherit;
   box-sizing: border-box;
+}
+
+button[class] {
+  border: none;
+  background: transparent;
 }
 
 body {

@@ -2,7 +2,7 @@ import React from "react";
 
 // Components
 import TodoItem from "./TodoItem.jsx";
-import NewItemForm from "./NewItemForm.jsx";
+import NewItemForm from "../formComponents/NewItemForm.jsx";
 
 // Styles
 import "./TodoList.style.css";
@@ -34,6 +34,20 @@ const TodoList = (props) => {
             <NewItemForm callback={todoHelpers.addTodo} />
           </div>
         </div>
+      </div>
+      <div className="todo-list--footer">
+        <button
+          className="delete"
+          onClick={() =>
+            todoHelpers.deleteItems("completedTodos", uncompletedTodos())
+          }>
+          Clear Completed Todos
+        </button>
+        <button
+          className="delete"
+          onClick={() => todoHelpers.deleteItems("task")}>
+          Delete List
+        </button>
       </div>
     </div>
   );

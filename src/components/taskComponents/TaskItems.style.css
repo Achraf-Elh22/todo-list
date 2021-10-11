@@ -7,11 +7,12 @@
 
 .tasks__item {
   text-transform: capitalize;
-  cursor: pointer;
   transition: opacity 150ms ease-in;
+  position: relative;
+  cursor: pointer;
 }
 
-.tasks__item:hover {
+.tasks__item span:first-child:hover {
   opacity: 0.7;
 }
 
@@ -25,4 +26,15 @@
 
 .tasks-list__form {
   font-size: 1.2rem;
+}
+
+.tasks__items--delete {
+  position: absolute;
+  right: 0;
+  font-size: 1.5rem;
+}
+
+.tasks__items--delete:hover {
+  opacity: 1;
+  color: red;
 }

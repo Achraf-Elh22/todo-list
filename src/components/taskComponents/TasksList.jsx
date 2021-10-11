@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 // Components
 import TasksItems from "./TasksItems.jsx";
-import NewItemForm from "./NewItemForm.jsx";
+import NewItemForm from "../formComponents/NewItemForm.jsx";
 
 // Style
 import "./TasksList.style.css";
@@ -45,6 +45,7 @@ const TasksList = (props) => {
       <TasksItems
         tasks={props.tasksList}
         toggleOpen={props.taskHelpers.toggleOpen}
+        deleteTask={props.taskHelpers.deleteItems}
       />
       <div className="tasks-list__form">
         <NewItemForm callback={isTaskNew} />
