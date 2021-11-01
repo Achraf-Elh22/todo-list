@@ -6,11 +6,10 @@ import "./TodoItem.style.css";
 const TodoItem = (props) => {
   const [isCompleted, setIsCompleted] = useState(props.isCompleted);
 
-  const { id, todoName, todoStatus } = props;
+  const { id, todoName, toggleStatus } = props;
 
   useEffect(() => {
-    if (isCompleted !== props.isCompleted)
-      todoStatus({ id, status: isCompleted });
+    if (isCompleted !== props.isCompleted) toggleStatus(id, isCompleted);
   }, [isCompleted, id]);
 
   const handleChange = () => {

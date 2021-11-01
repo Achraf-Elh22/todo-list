@@ -1,9 +1,15 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React from "react";
+import React, { useContext } from "react";
+
+// Context
+import { TaskContext } from "../../contexts/Task.context.jsx";
 
 import "./TaskItems.style.css";
 
-const TasksItems = ({ tasks, toggleOpen, deleteTask }) => {
+const TasksItems = () => {
+  const { tasks, dispatch } = useContext(TaskContext);
+
+  const toggleOpen = (id) => dispatch({ type: "TOGGLE_ISOPEN", payload: id });
   return (
     <ul className="tasks__items">
       {tasks.map(({ taskName, isOpen, id }) => (

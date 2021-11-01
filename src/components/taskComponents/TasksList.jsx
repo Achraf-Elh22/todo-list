@@ -1,27 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import { v4 as uuid } from "uuid";
 
 // Components
 import TasksItems from "./TasksItems.jsx";
 import NewItemForm from "../formComponents/NewItemForm.jsx";
 
+// Context
+import { TaskContext } from "../../contexts/Task.context.jsx";
+
 // Style
 import "./TasksList.style.css";
 
-const TasksList = (props) => {
+const TasksList = () => {
   const [error, setError] = useState({ status: false, message: "" });
-
-  useEffect(() => {
-    // if (error.status)
-  }, [error, setError]);
+  const { tasks, dispatch } = useContext(TaskContext);
 
   // Check if the new item is unique
-  const isTaskNew = (newItem) => {
-    const isTaskNew = (tasks, newItem) =>
+  const isTaskNew = (item) => {
+    const isTaskNew = (tasks, item) =>
       tasks.some(
-        ({ id, taskName }) => id === newItem.id || taskName === newItem.name
+        ({ id, taskName }) => id === item.id || taskName === item.name
       );
-    if (!isTaskNew(props.tasksList, newItem)) {
-      props.taskHelpers.addTask(newItem);
+
+    if (!isTaskNew(tasks, item)) {
+      const newItem = {
+        id: item.id,
+        taskName: item.name,
+        isOpen: false,
+        todosId: uuid(),
+      };
+      dispatch({ type: "ADD_NEW_TASK", payload: newItem });
     } else {
       // Show error
       showError("Already exists");
@@ -42,11 +50,7 @@ const TasksList = (props) => {
   return (
     <div className="tasks-list">
       <h2 className="tasks-list__title">My lists</h2>
-      <TasksItems
-        tasks={props.tasksList}
-        toggleOpen={props.taskHelpers.toggleOpen}
-        deleteTask={props.taskHelpers.deleteItems}
-      />
+      <TasksItems />
       <div className="tasks-list__form">
         <NewItemForm callback={isTaskNew} />
       </div>

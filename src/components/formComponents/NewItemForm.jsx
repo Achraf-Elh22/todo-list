@@ -22,12 +22,12 @@ const NewItemForm = ({ callback }) => {
       return setValue("");
     }
   };
+
   return (
     <div>
       <form className="new-item__container" onSubmit={handleSubmit}>
         <input
           type="text"
-          value=""
           className="new-item__task"
           placeholder="new task list"
           aria-label="new task list"

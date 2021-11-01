@@ -18,6 +18,7 @@
 }
 
 .todo-list--title {
+  text-transform: capitalize;
   margin: 0;
 }
 

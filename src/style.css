@@ -29,7 +29,7 @@ body {
 .container {
   display: grid;
   grid:
-    "header header header header" auto
+    "header header header header" 8rem
     "...... tasks-list  todo-list ......" auto/
     1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
 }
